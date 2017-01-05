@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessTableFailed" xml:space="preserve">
+    <value>Neizdevās izveidot jaunu Microsoft Access tabulu!</value>
+  </data>
+  <data name="AccessInsertFailed" xml:space="preserve">
+    <value>Neizdevās ievietot jaunās vērtības Microsoft Access!</value>
+  </data>
+  <data name="FileExist" xml:space="preserve">
+    <value>nēeksistē!</value>
+  </data>
+  <data name="FileXLS" xml:space="preserve">
+    <value>Microsoft Excel datne</value>
+  </data>
+  <data name="ConnectingAccess" xml:space="preserve">
+    <value>Veidoju savienojumu ar Microsoft Access...</value>
+  </data>
+  <data name="FieldsEnter" xml:space="preserve">
+    <value>Lūdzu ievadi pareizas vērtības!</value>
+  </data>
+  <data name="WrongExcelField" xml:space="preserve">
+    <value>Tu ievadīji nepareizu Microsoft Excel vērtību lauku!</value>
+  </data>
+  <data name="AccessTableDelete" xml:space="preserve">
+    <value>Izdzēšu Microsoft Access izveidoto tabulu...</value>
+  </data>
+  <data name="AccessTableDeleteFailed" xml:space="preserve">
+    <value>Neizdevās izdzēst Microsoft Access izveidoto tabulu!</value>
+  </data>
+  <data name="AccessSuccess" xml:space="preserve">
+    <value>Vērtības veiksmīgi ievietotas Microsoft Access.</value>
+  </data>
+  <data name="EnterSheet" xml:space="preserve">
+    <value>Tu neievadīji Microsoft Excel DarbaGrāmatu!</value>
+  </data>
+  <data name="ConnectingExcel" xml:space="preserve">
+    <value>Veidoju savienojumu ar Microsoft Excel...</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Pārlūkot</value>
+  </data>
+  <data name="WorkSheet" xml:space="preserve">
+    <value>DarbaGrāmata</value>
+  </data>
+  <data name="Checking" xml:space="preserve">
+    <value>Pārbaudu ievadītās vērtības...</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Apstiprināt</value>
+  </data>
+  <data name="PrimaryKey" xml:space="preserve">
+    <value>Pievienot AutoNumber un Primary Key</value>
+  </data>
+  <data name="AccessQuery" xml:space="preserve">
+    <value>Izpildu Microsoft Access Query...</value>
+  </data>
+  <data name="Window" xml:space="preserve">
+    <value>Convert Excel To Access</value>
+  </data>
+  <data name="AccessPath" xml:space="preserve">
+    <value>Access datnes atrašanās vieta</value>
+  </data>
+  <data name="EnterAccess" xml:space="preserve">
+    <value>Tu neievadīji Microsoft Access datnes atrašanās vietu!</value>
+  </data>
+  <data name="Table" xml:space="preserve">
+    <value>Tabula</value>
+  </data>
+  <data name="AccessInsert" xml:space="preserve">
+    <value>Ievietoju jaunās vērtības Microsoft Access tabulā...</value>
+  </data>
+  <data name="EnterExcel" xml:space="preserve">
+    <value>Tu neievadīji Microsoft Excel datnes atrašanās vietu!</value>
+  </data>
+  <data name="AccessTable" xml:space="preserve">
+    <value>Veidoju jaunu Microsoft Access tabulu...</value>
+  </data>
+  <data name="EnterTable" xml:space="preserve">
+    <value>Tu neievadīji Microsoft Access Tabulu!</value>
+  </data>
+  <data name="ExcelQueryFailed" xml:space="preserve">
+    <value>Neizdevās izpildīt Microsoft Excel Query!</value>
+  </data>
+  <data name="AccessQueryFailed" xml:space="preserve">
+    <value>Neizdevās izpildīt Microsoft Access Query!</value>
+  </data>
+  <data name="ExcelField" xml:space="preserve">
+    <value>Vērtību lauks</value>
+  </data>
+  <data name="AccessQueryTip" xml:space="preserve">
+    <value>Tu ievadīji eksistējošu Microsoft Access Tabulu!</value>
+  </data>
+  <data name="ExcelQuery" xml:space="preserve">
+    <value>Izpildu Microsoft Excel Query...</value>
+  </data>
+  <data name="Waiting" xml:space="preserve">
+    <value>Gaidu</value>
+  </data>
+  <data name="FieldsValid" xml:space="preserve">
+    <value>Vertības ir pārbaudītas un ir pareizas.</value>
+  </data>
+  <data name="SheetEmpty" xml:space="preserve">
+    <value>Norādītajā Darbagrāmatā nav nevienas vērtības!</value>
+  </data>
+  <data name="ExcelFinished" xml:space="preserve">
+    <value>Microsoft Excel vērtības ir nolasītas.</value>
+  </data>
+  <data name="ExcelReadCol" xml:space="preserve">
+    <value>Nolasu Microsoft Excel kolonnas...</value>
+  </data>
+  <data name="ExcelPath" xml:space="preserve">
+    <value>Excel datnes atrašanās vieta</value>
+  </data>
+  <data name="ExcelRead" xml:space="preserve">
+    <value>Nolasu Microsoft Excel vērtības...</value>
+  </data>
+  <data name="NotRight" xml:space="preserve">
+    <value>nav pareiza!</value>
+  </data>
+  <data name="FileMDB" xml:space="preserve">
+    <value>Microsoft Access datne</value>
+  </data>
+  <data name="ConnectingAccessFailed" xml:space="preserve">
+    <value>Neizdevās savienoties ar Microsoft Access!</value>
+  </data>
+  <data name="FieldsNotValid" xml:space="preserve">
+    <value>Vertības ir pārbaudītas, bet dažas ir nepareizas!</value>
+  </data>
+  <data name="ChooseFile" xml:space="preserve">
+    <value>Izvēlies Datni</value>
+  </data>
+  <data name="SheetExist" xml:space="preserve">
+    <value>Norādītā Darbagrāmata nēeksistē!</value>
+  </data>
+  <data name="ExcelQueryTip" xml:space="preserve">
+    <value>Tu ievadīji nēeksistējošu Microsoft Excel DarbaGrāmatu!</value>
+  </data>
+  <data name="ConnectingExcelFailed" xml:space="preserve">
+    <value>Neizdevās savienoties ar Microsoft Excel!</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AccessTip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AccessTip.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExcelTip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExcelTip.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExcelTip2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExcelTip2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExcelTip3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExcelTip3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AccessTableDel" xml:space="preserve">
+    <value>Izveidotā Microsoft Access tabula ir izdzēsta.</value>
+  </data>
+</root>
