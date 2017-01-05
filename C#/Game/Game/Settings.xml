@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Settings xmlns="e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="Settings.xsd">
+<Settings xmlns="e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="e Settings.xsd">
   <AdminPassword>TeSkolotajs</AdminPassword>
-  <SqlType>Compact</SqlType>
+  <SqlType>Local</SqlType>
   <SqlServer>(local)</SqlServer>
-  <SqlCatalog>|DataDirectory|\Data.sdf</SqlCatalog>
+  <SqlCatalog>|DataDirectory|\LocalData.mdf</SqlCatalog>
   <SqlAuth>false</SqlAuth>
   <SqlUser></SqlUser>
   <SqlPassword></SqlPassword>

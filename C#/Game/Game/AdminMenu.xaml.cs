@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace Game
 {
     /// <summary>
-    /// Interaction logic for MainMenu.xaml
+    /// Interaction logic for AdminMenu.xaml
     /// </summary>
     public partial class AdminMenu : UserControl
     {
@@ -24,13 +24,19 @@ namespace Game
             InitializeComponent();
         }
 
-        private void Math_Click(object sender, RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Content = new MathAdmin();
+            ((Window)((UserControl)this.Parent).Parent).Close();
         }
 
-        private void Words_Click(object sender, RoutedEventArgs e)
+        private void MathButton_Click(object sender, RoutedEventArgs e)
         {
+            ((UserControl)this.Parent).Content = new AdminMath();
+        }
+
+        private void WordButton_Click(object sender, RoutedEventArgs e)
+        {
+            ((UserControl)this.Parent).Content = new AdminSentences();
         }
     }
 }

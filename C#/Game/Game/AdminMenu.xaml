@@ -1,13 +1,29 @@
 <UserControl x:Class="Game.AdminMenu"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <Button Content="Matemātika" Height="30" HorizontalAlignment="Center" Margin="103,76,97,194" Name="Math" VerticalAlignment="Center" Width="100" IsCancel="True" Click="Math_Click" IsDefault="True" />
-        <Button Content="Vārdi" Height="30" HorizontalAlignment="Center" Margin="103,126,97,144" Name="Words" VerticalAlignment="Center" Width="100" IsCancel="True" Click="Words_Click" />
-        <Button Content="Iestatījumi" Height="30" HorizontalAlignment="Center" IsCancel="True" Margin="103,175,97,95" Name="Settings" VerticalAlignment="Center" Width="100" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="100*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*" />
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="100*" />
+        </Grid.ColumnDefinitions>
+        <Button Content="Matemātikas uzdevms" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="MathButton" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Click="MathButton_Click" />
+        <Button Content="Vārdu uzdevums" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="WordButton" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Click="WordButton_Click" />
+        <Button Content="Iestatījumi" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="SettingsButton" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" />
+        <Button Content="Aizvērt" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="CloseButton" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Click="CloseButton_Click" />
+        <Label Content="Spēles vadība" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Stretch" Margin="0,0,0,0" Padding="0,0,0,10" Name="GameControlLabel" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="26" FontWeight="Bold" FontFamily="Segoe UI" FontStyle="Italic" />
     </Grid>
 </UserControl>

@@ -15,7 +15,7 @@ using System.Media;
 namespace Game
 {
     /// <summary>
-    /// Interaction logic for Correct.xaml
+    /// Interaction logic for Wrong.xaml
     /// </summary>
     public partial class Wrong : Window
     {
@@ -36,6 +36,5 @@ namespace Game
             this.Sound = new SoundPlayer("wrong.wav");
             this.Sound.Play();
         }
-
     }
 }

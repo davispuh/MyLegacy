@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Windows;
 
 namespace Game
@@ -7,17 +10,22 @@ namespace Game
     {
         public static void ShowErrorAndQuit(Exception Exception)
         {
-            string Message = Exception.Message;
-            if (Exception.InnerException != null && Exception.InnerException.Message.Length > 0)
+            string Message = AddInnerExceptionMessage(Exception.Message, Exception.InnerException);
+            if (Exception.InnerException != null)
             {
-                Message = Message + "\n" + Exception.InnerException.Message;
-                if (Exception.InnerException.InnerException != null && Exception.InnerException.InnerException.Message.Length > 0)
-                {
-                    Message = Message + "\n" + Exception.InnerException.InnerException.Message;
-                };
-            };
+                Message = AddInnerExceptionMessage(Message, Exception.InnerException);
+            }
             MessageBox.Show(Message, "ERROR!");
             Application.Current.Shutdown(-1);
+        }
+
+        public static string AddInnerExceptionMessage(string Message, Exception InnerException)
+        {
+            if (InnerException != null && InnerException.Message.Length > 0)
+            {
+                Message = Message + "\n" + InnerException.Message;
+            };
+            return Message;
         }
     }
 }

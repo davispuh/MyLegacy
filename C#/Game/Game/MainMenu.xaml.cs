@@ -19,27 +19,27 @@ namespace Game
     /// </summary>
     public partial class MainMenu : UserControl
     {
-
         public MainMenu()
         {
             InitializeComponent();
         }
 
-        private void Math_Click(object sender, RoutedEventArgs e)
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Content = new Math();
+            ((Window)this.Parent).Close();
         }
 
-        private void Words_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
-        private void GameLabel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void GameRectangle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (Keyboard.Modifiers == (ModifierKeys.Control | ModifierKeys.Shift))
             {
-                (new Admin()).ShowDialog();
+                (new AdminWindow()).ShowDialog();
             }
+        }
+
+        private void MathButton_Click(object sender, RoutedEventArgs e)
+        {
+            ((Window)this.Parent).Content = new MathGame();
         }
     }
 }

@@ -17,13 +17,13 @@ namespace Game
     /// <summary>
     /// Interaction logic for Math.xaml
     /// </summary>
-    public partial class Math : UserControl
+    public partial class MathGame : UserControl
     {
         private int CurrentQuestion = 0;
-        private List<MathTable> MathData;
+        private List<Math> MathData;
         private int ButtonState = 0;
 
-        public Math()
+        public MathGame()
         {
             InitializeComponent();
         }
@@ -38,7 +38,7 @@ namespace Game
             }
             else if (this.ButtonState == 2)
             {
-                this.Content = new MainMenu();
+                ((Window)this.Parent).Content = new MainMenu();
             }
             else
             {
@@ -50,7 +50,7 @@ namespace Game
                 catch { };
                 if (UserAnswer != double.NaN && this.GetAnswer().Equals(UserAnswer))
                 {
-                    if (this.CurrentQuestion+1 < this.MathData.Count)
+                    if (this.CurrentQuestion + 1 < this.MathData.Count)
                     {
                         this.UpdateButton(1);
                     }
@@ -62,7 +62,7 @@ namespace Game
                 }
                 else
                 {
-                    if (this.CurrentQuestion+1 < this.MathData.Count)
+                    if (this.CurrentQuestion + 1 < this.MathData.Count)
                     {
                         this.UpdateButton(1);
                     }
@@ -82,8 +82,8 @@ namespace Game
         {
             try
             {
-                   var Questions = from q in Storage.Data.MathTable
-                                   select q;
+                var Questions = from q in Storage.Data.MathTable
+                                select q;
 
                 this.MathData = Questions.ToList();
                 this.LoadQuestion();
@@ -105,6 +105,7 @@ namespace Game
             else if (this.ButtonState == 2)
             {
                 this.Submit.Content = "Uz Sākumu";
+                this.LastQuestion.Visibility = Visibility.Visible;
                 this.Answer.IsEnabled = false;
             }
             else
@@ -113,6 +114,7 @@ namespace Game
                 this.Answer.IsEnabled = true;
                 this.CorrectAnswerLabel.Visibility = Visibility.Hidden;
                 this.CorrectAnswer.Visibility = Visibility.Hidden;
+                this.LastQuestion.Visibility = Visibility.Hidden;
                 this.Submit.Content = "Pārbaudīt";
             };
         }
@@ -126,7 +128,7 @@ namespace Game
         {
             if (this.CurrentQuestion < this.MathData.Count)
             {
-                this.Question.Text = this.MathData[this.CurrentQuestion].Question;
+                this.Question.Text = this.MathData[this.CurrentQuestion].Equation;
                 this.UpdateButton(0);
             }
             else

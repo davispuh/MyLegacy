@@ -4,50 +4,124 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Data.Store" Alias="Self" Provider="System.Data.SqlServerCe.3.5" ProviderManifestToken="3.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="Data.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="DataStoreContainer">
     <EntitySet Name="MathTable" EntityType="Data.Store.MathTable" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="WordTable" EntityType="Data.Store.WordTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SentenceTable" EntityType="Data.Store.SentenceTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VariantTable" EntityType="Data.Store.VariantTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HallOfFameTable" EntityType="Data.Store.HallOfFameTable" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="SentencesVariants" Association="Data.Store.SentencesVariants">
+      <End Role="Sentences" EntitySet="SentenceTable" />
+      <End Role="Variants" EntitySet="VariantTable" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="MathTable">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Question" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Equation" Type="nvarchar" Nullable="false" MaxLength="15" />
     <Property Name="Answer" Type="float" Nullable="false" />
   </EntityType>
-  <EntityType Name="WordTable">
+  <EntityType Name="SentenceTable">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Question" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="Answer" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sentence" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Word" Type="nvarchar" Nullable="false" MaxLength="20" />
   </EntityType>
+  <EntityType Name="VariantTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Variant" Type="int" Nullable="false" />
+    <Property Name="SentencesId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HallOfFameTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Correct" Type="int" Nullable="false" />
+    <Property Name="GameType" Type="tinyint" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="SentencesVariants">
+    <End Role="Sentences" Type="Data.Store.SentenceTable" Multiplicity="1" />
+    <End Role="Variants" Type="Data.Store.VariantTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sentences">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Variants">
+        <PropertyRef Name="SentencesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Data" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityContainer Name="DataContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="MathTable" EntityType="Data.MathTable" />
-          <EntitySet Name="WordTable" EntityType="Data.WordTable" />
+          <EntitySet Name="MathTable" EntityType="Data.Math" />
+          <EntitySet Name="SentenceTable" EntityType="Data.Sentences" />
+          <EntitySet Name="VariantTable" EntityType="Data.Variants" />
+          <AssociationSet Name="SentencesVariants" Association="Data.SentencesVariants">
+            <End Role="Sentences" EntitySet="SentenceTable" />
+            <End Role="Variants" EntitySet="VariantTable" />
+          </AssociationSet>
+          <EntitySet Name="HallOfFameTable" EntityType="Data.HallOfFame" />
         </EntityContainer>
-        <EntityType Name="MathTable">
+        <EntityType Name="Math">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Question" Nullable="false" Unicode="true" MaxLength="20" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Equation" Nullable="false" Unicode="true" MaxLength="15" />
           <Property Type="Double" Name="Answer" Nullable="false" />
         </EntityType>
-        <EntityType Name="WordTable">
+        <EntityType Name="Sentences">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Question" Nullable="false" Unicode="true" MaxLength="100" />
-          <Property Type="String" Name="Answer" Nullable="false" Unicode="true" MaxLength="20" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Sentence" Nullable="false" MaxLength="100" Unicode="true" />
+          <Property Type="String" Name="Word" Nullable="false" Unicode="true" MaxLength="20" />
+          <NavigationProperty Name="Variants" Relationship="Data.SentencesVariants" FromRole="Sentences" ToRole="Variants" />
+        </EntityType>
+        <EntityType Name="Variants">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Variant" Nullable="false" annotation:StoreGeneratedPattern="None" Type="Int32" />
+          <NavigationProperty Name="Sentences" Relationship="Data.SentencesVariants" FromRole="Variants" ToRole="Sentences" />
+          <Property Name="SentencesId" Nullable="false" Type="Int32" />
+        </EntityType>
+        <Association Name="SentencesVariants">
+          <End Type="Data.Sentences" Role="Sentences" Multiplicity="1" />
+          <End Type="Data.Variants" Role="Variants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sentences">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Variants">
+              <PropertyRef Name="SentencesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="HallOfFame">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" Unicode="true" />
+          <Property Type="Int32" Name="Correct" Nullable="false" />
+          <Property Type="Byte" Name="GameType" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -56,20 +130,40 @@
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DataStoreContainer" CdmEntityContainer="DataContainer">
     <EntitySetMapping Name="MathTable">
-      <EntityTypeMapping TypeName="IsTypeOf(Data.MathTable)">
+      <EntityTypeMapping TypeName="IsTypeOf(Data.Math)">
         <MappingFragment StoreEntitySet="MathTable">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Equation" ColumnName="Equation" />
           <ScalarProperty Name="Answer" ColumnName="Answer" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="WordTable">
-      <EntityTypeMapping TypeName="IsTypeOf(Data.WordTable)">
-        <MappingFragment StoreEntitySet="WordTable">
+    <EntitySetMapping Name="SentenceTable">
+      <EntityTypeMapping TypeName="IsTypeOf(Data.Sentences)">
+        <MappingFragment StoreEntitySet="SentenceTable">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Question" ColumnName="Question" />
-          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Sentence" ColumnName="Sentence" />
+          <ScalarProperty Name="Word" ColumnName="Word" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VariantTable">
+      <EntityTypeMapping TypeName="IsTypeOf(Data.Variants)">
+        <MappingFragment StoreEntitySet="VariantTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Variant" ColumnName="Variant" />
+          <ScalarProperty Name="SentencesId" ColumnName="SentencesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HallOfFameTable">
+      <EntityTypeMapping TypeName="IsTypeOf(Data.HallOfFame)">
+        <MappingFragment StoreEntitySet="HallOfFameTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Correct" ColumnName="Correct" />
+          <ScalarProperty Name="GameType" ColumnName="GameType" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -91,9 +185,15 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram Name="Data" >
-        <EntityTypeShape EntityType="Data.MathTable" Width="1.5" PointX="1.125" PointY="1.25" Height="1.59568359375" />
-        <EntityTypeShape EntityType="Data.WordTable" Width="1.5" PointX="3.125" PointY="0.625" Height="1.59568359375" />
+      <Diagram Name="Data" DisplayType="true" >
+        <EntityTypeShape EntityType="Data.Math" Width="1.5" PointX="0.5" PointY="1.25" Height="1.4430468571186066" />
+        <EntityTypeShape EntityType="Data.Sentences" Width="1.5" PointX="4.625" PointY="1.25" Height="1.6099088333050413" />
+        <EntityTypeShape EntityType="Data.Variants" Width="1.5" PointX="2.375" PointY="1.25" Height="1.6099088333050409" />
+        <AssociationConnector Association="Data.SentencesVariants">
+          <ConnectorPoint PointX="4.625" PointY="2.0549544166525204" />
+          <ConnectorPoint PointX="3.875" PointY="2.0549544166525204" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Data.HallOfFame" Width="1.5" PointX="6.625" PointY="1.25" Height="1.7767708094914747" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

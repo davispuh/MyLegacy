@@ -20,6 +20,7 @@ namespace Game
     public partial class Correct : Window
     {
         private SoundPlayer Sound;
+
         public Correct()
         {
             InitializeComponent();

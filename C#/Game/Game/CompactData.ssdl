@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Schema Namespace="Data.Store" Alias="Self" Provider="System.Data.SqlServerCe.3.5" ProviderManifestToken="3.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DataStoreContainer">
+    <EntitySet Name="MathTable" EntityType="Data.Store.MathTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SentenceTable" EntityType="Data.Store.SentenceTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VariantTable" EntityType="Data.Store.VariantTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HallOfFameTable" EntityType="Data.Store.HallOfFameTable" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="SentencesVariants" Association="Data.Store.SentencesVariants">
+      <End Role="Sentences" EntitySet="SentenceTable" />
+      <End Role="Variants" EntitySet="VariantTable" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="MathTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Equation" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Answer" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SentenceTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Sentence" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Word" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="VariantTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Variant" Type="int" Nullable="false" />
+    <Property Name="SentencesId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HallOfFameTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Correct" Type="int" Nullable="false" />
+    <Property Name="GameType" Type="tinyint" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="SentencesVariants">
+    <End Role="Sentences" Type="Data.Store.SentenceTable" Multiplicity="1" />
+    <End Role="Variants" Type="Data.Store.VariantTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sentences">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Variants">
+        <PropertyRef Name="SentencesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

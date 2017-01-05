@@ -2,12 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Windows;
-using System.Data.SqlClient;
 using System.Data.EntityClient;
 using System.Xml.Serialization;
-using System.Xml;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace Game
 {
@@ -49,7 +47,7 @@ namespace Game
             Storage.ConnectionString = new EntityConnectionStringBuilder();
             Storage.ConnectionString.Provider = "System.Data.SqlClient";
             Storage.ConnectionString.ProviderConnectionString = ConnectionString.ConnectionString;
-            Storage.ConnectionString.Metadata = @"res://*/Data.csdl|.\DataServer.ssdl|res://*/Data.msl";
+            Storage.ConnectionString.Metadata = @"res://*/Data.csdl|res://*/Data.ssdl|res://*/Data.msl";
         }
 
         public static void InitSqlClientLocal(string DBFilename, bool IntegratedSecurity, string User, string Password)
@@ -93,8 +91,7 @@ namespace Game
             Storage.ConnectionString = new EntityConnectionStringBuilder();
             Storage.ConnectionString.Provider = "System.Data.SqlServerCe.3.5";
             Storage.ConnectionString.ProviderConnectionString = ConnectionString.ToString();
-            Storage.ConnectionString.Metadata = @"res://*/Data.csdl|res://*/Data.ssdl|res://*/Data.msl";
+            Storage.ConnectionString.Metadata = @"res://*/Data.csdl|.\CompactData.ssdl|res://*/Data.msl";
         }
-
     }
 }

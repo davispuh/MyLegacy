@@ -1,0 +1,6 @@
+<Window x:Class="Game.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Spēles vadība" Height="300" Width="400" MinHeight="250" MinWidth="300" xmlns:my="clr-namespace:Game" Icon="/Game;component/books.ico" WindowStartupLocation="CenterScreen">
+    <my:PromptPassword x:Name="PromptPassword" />
+</Window>

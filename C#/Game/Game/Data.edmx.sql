@@ -1,65 +1,59 @@
 
 -- --------------------------------------------------
--- Entity Designer DDL Script for SQL Server Compact Edition
+-- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 01/17/2012 13:53:07
+-- Date Created: 01/17/2012 14:11:26
 -- Generated from EDMX file: Data.edmx
 -- --------------------------------------------------
 
+SET QUOTED_IDENTIFIER OFF;
+GO
+USE [LocalData];
+GO
+IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
+GO
 
 -- --------------------------------------------------
 -- Dropping existing FOREIGN KEY constraints
--- NOTE: if the constraint does not exist, an ignorable error will be reported.
 -- --------------------------------------------------
 
-    ALTER TABLE [VariantTable] DROP CONSTRAINT [FK_SentencesVariants];
-GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
--- NOTE: if the table does not exist, an ignorable error will be reported.
 -- --------------------------------------------------
 
-    DROP TABLE [MathTable];
-GO
-    DROP TABLE [SentenceTable];
-GO
-    DROP TABLE [VariantTable];
-GO
-    DROP TABLE [HallOfFameTable];
-GO
 
 -- --------------------------------------------------
 -- Creating all tables
 -- --------------------------------------------------
 
 -- Creating table 'MathTable'
-CREATE TABLE [MathTable] (
-    [Id] uniqueidentifier  NOT NULL,
+CREATE TABLE [dbo].[MathTable] (
+    [Id] int IDENTITY(1,1) NOT NULL,
     [Equation] nvarchar(15)  NOT NULL,
     [Answer] float  NOT NULL
 );
 GO
 
 -- Creating table 'SentenceTable'
-CREATE TABLE [SentenceTable] (
-    [Id] uniqueidentifier  NOT NULL,
+CREATE TABLE [dbo].[SentenceTable] (
+    [Id] int IDENTITY(1,1) NOT NULL,
     [Sentence] nvarchar(100)  NOT NULL,
     [Word] nvarchar(20)  NOT NULL
 );
 GO
 
 -- Creating table 'VariantTable'
-CREATE TABLE [VariantTable] (
-    [Id] uniqueidentifier  NOT NULL,
+CREATE TABLE [dbo].[VariantTable] (
+    [Id] int IDENTITY(1,1) NOT NULL,
     [Variant] int  NOT NULL,
-    [SentencesId] uniqueidentifier  NOT NULL
+    [SentencesId] int  NOT NULL
 );
 GO
 
 -- Creating table 'HallOfFameTable'
-CREATE TABLE [HallOfFameTable] (
-    [Id] uniqueidentifier  NOT NULL,
+CREATE TABLE [dbo].[HallOfFameTable] (
+    [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(20)  NOT NULL,
     [Correct] int  NOT NULL,
     [GameType] tinyint  NOT NULL,
@@ -72,27 +66,27 @@ GO
 -- --------------------------------------------------
 
 -- Creating primary key on [Id] in table 'MathTable'
-ALTER TABLE [MathTable]
+ALTER TABLE [dbo].[MathTable]
 ADD CONSTRAINT [PK_MathTable]
-    PRIMARY KEY ([Id] );
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- Creating primary key on [Id] in table 'SentenceTable'
-ALTER TABLE [SentenceTable]
+ALTER TABLE [dbo].[SentenceTable]
 ADD CONSTRAINT [PK_SentenceTable]
-    PRIMARY KEY ([Id] );
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- Creating primary key on [Id] in table 'VariantTable'
-ALTER TABLE [VariantTable]
+ALTER TABLE [dbo].[VariantTable]
 ADD CONSTRAINT [PK_VariantTable]
-    PRIMARY KEY ([Id] );
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- Creating primary key on [Id] in table 'HallOfFameTable'
-ALTER TABLE [HallOfFameTable]
+ALTER TABLE [dbo].[HallOfFameTable]
 ADD CONSTRAINT [PK_HallOfFameTable]
-    PRIMARY KEY ([Id] );
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- --------------------------------------------------
@@ -100,16 +94,16 @@ GO
 -- --------------------------------------------------
 
 -- Creating foreign key on [SentencesId] in table 'VariantTable'
-ALTER TABLE [VariantTable]
+ALTER TABLE [dbo].[VariantTable]
 ADD CONSTRAINT [FK_SentencesVariants]
     FOREIGN KEY ([SentencesId])
-    REFERENCES [SentenceTable]
+    REFERENCES [dbo].[SentenceTable]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_SentencesVariants'
 CREATE INDEX [IX_FK_SentencesVariants]
-ON [VariantTable]
+ON [dbo].[VariantTable]
     ([SentencesId]);
 GO
 

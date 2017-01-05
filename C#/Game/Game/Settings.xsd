@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="e" xmlns="e" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="Settings"
+    targetNamespace="e"
+    elementFormDefault="qualified"
+    xmlns="e"
+    xmlns:mstns="e"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
   <xs:element name="Settings">
     <xs:complexType>
       <xs:sequence>

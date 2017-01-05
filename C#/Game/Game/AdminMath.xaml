@@ -1,0 +1,31 @@
+<UserControl x:Class="Game.AdminMath"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" xmlns:my="clr-namespace:Game" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="mathTableViewSource" d:DesignSource="{d:DesignInstance my:Math, CreateList=True}" />
+    </UserControl.Resources>
+    <Grid DataContext="{StaticResource mathTableViewSource}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+        <DataGrid AutoGenerateColumns="False" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="MathData" VerticalAlignment="Stretch" ItemsSource="{Binding}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Equation}" Header="Vienādojums" />
+                <DataGridTextColumn Binding="{Binding Path=Answer}" Header="Atrisinājums" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Saglabāt" Grid.Row="2"  Grid.Column="0" HorizontalAlignment="Right" Margin="0,0,5,0" Padding="5,1,5,1" Name="SaveButton" VerticalAlignment="Center" FontSize="14" Click="SaveButton_Click" />
+        <Button Content="Atpakaļ" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0" Padding="5,1,5,1" Name="BackButton" VerticalAlignment="Center" FontSize="14" Click="BackButton_Click" />
+    </Grid>
+</UserControl>
