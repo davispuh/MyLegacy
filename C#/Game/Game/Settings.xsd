@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="e" xmlns="e" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="Settings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AdminPassword" type="xs:string" minOccurs="1" maxOccurs="1" />
+        <xs:element name="SqlType" default="Compact" type="SqlType" minOccurs="1" maxOccurs="1" />
+        <xs:element name="SqlServer" type="xs:string" minOccurs="1" maxOccurs="1" />
+        <xs:element name="SqlCatalog" type="xs:string" minOccurs="1" maxOccurs="1" />
+        <xs:element name="SqlAuth" default="0" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+        <xs:element name="SqlUser" type="xs:string" minOccurs="1" maxOccurs="1" />
+        <xs:element name="SqlPassword" type="xs:string" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="SqlType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Compact"/>
+      <xs:enumeration value="Local" />
+      <xs:enumeration value="Remote" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

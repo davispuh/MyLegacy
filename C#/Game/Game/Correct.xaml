@@ -1,0 +1,10 @@
+<Window x:Class="Game.Correct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Pareizi!" Height="300" Width="300" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Background="{StaticResource {x:Static SystemColors.WindowBrushKey}}" Icon="/Game;component/books.ico">
+    <Grid>
+        <Image Height="168" HorizontalAlignment="Center" Name="Image" Stretch="Uniform" VerticalAlignment="Top" Width="279" DataContext="{Binding}" Source="/Game;component/correct.png" StretchDirection="Both" Margin="0,10,0,0" />
+        <Button Content="Turpināt" Height="25" HorizontalAlignment="Center" Margin="95,224,91,0" Name="Continue" VerticalAlignment="Top" Width="92" Click="Continue_Click" />
+        <Label Content="Pareizi!" Height="53" HorizontalAlignment="Center" Margin="0,165,0,0" Name="LabelCorrect" VerticalAlignment="Top" Width="202" FontSize="26" FontWeight="Bold" FontStyle="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+    </Grid>
+</Window>
